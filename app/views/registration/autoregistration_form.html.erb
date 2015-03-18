@@ -1,0 +1,21 @@
+<h2><%=l(:label_register)%></h2>
+
+<%= labelled_form_for @user, :url => {:action => 'register'} do |f| %>
+<div id="errorExplanation">
+	<ul>
+		<li>Cliquez sur soumettre pour continuer</li>
+	</ul>
+</div>
+<div class="box tabular">
+<p><%= f.text_field :firstname, :value => given_name, :readonly => true %></p>
+<p><%= f.text_field :lastname, :value => sn, :readonly => true %></p>
+<p><%= f.text_field :mail, :value => remote_user, :readonly => true %></p>
+
+<%= f.hidden_field :language, :value => "fr" %>
+<% @user.custom_field_values.select {|v| v.editable? || v.required?}.each do |value| %>
+  <p><%= custom_field_tag_with_label :user, value %></p>
+<% end %>
+</div>
+
+<%= submit_tag l(:button_submit) %>
+<% end %>

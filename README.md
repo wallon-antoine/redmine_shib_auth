@@ -27,7 +27,7 @@ Installation
 
 1) Install Service provider in your redmine server<br />
 2) Enter into /your/redmine/plugins/<br />
-3) git checkout https://github.com/wallon-antoine/redmine_shib_auth.git<br />
+3) git checkout https://github.com/wallon-ines/redmine_shib_auth.git<br />
 4) Edit /your/redmine/app/controllers/application_controller.rb and add after<br />
 <pre><code>
       elsif params[:format] == 'atom' && params[:key] && request.get? && accept_rss_auth?
